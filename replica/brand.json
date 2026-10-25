@@ -1,0 +1,20 @@
+{
+  "_about": "Used by sweep.py, listing.py and replica-deploy. avoid: the original's names and its distinctive identifiers, plus our own retired placeholders so nothing stale ships. colors: retired placeholder colours; the original's own brand colours were not measured (see brand.md).",
+  "name": "Byte Acres",
+  "avoid": [
+    "The Farmer Was Replaced",
+    "Farmer Was Replaced",
+    "TheFarmerWasReplaced",
+    "Timon Herzog",
+    "Metaroot",
+    "Weird_Substance",
+    "pet_the_piggy",
+    "do_a_flip",
+    "Farmers_Remains",
+    "Drone Farm",
+    "drone-farm",
+    "DroneFarm"
+  ],
+  "domains": [],
+  "colors": ["#7aa7f5", "#1d2b40"]
+}

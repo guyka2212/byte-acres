@@ -1,0 +1,42 @@
+@import "tailwindcss";
+@import "./tokens.css";
+
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* one focus style for everything */
+code, pre, .font-mono { font-variant-ligatures: none; }
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+@keyframes pop-in {
+  0% { transform: scale(.6); opacity: 0; }
+  60% { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(1); }
+}
+@keyframes float-up {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-18px); opacity: 0; }
+}
+@keyframes pulse-ring {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-danger) 60%, transparent); }
+  50% { box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-danger) 0%, transparent); }
+}
+.anim-pop { animation: pop-in var(--tk-motion-slow) var(--ease-bounce); }
+.anim-float-up { animation: float-up 900ms var(--ease-game) forwards; }
+.anim-pulse-ring { animation: pulse-ring 1.2s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

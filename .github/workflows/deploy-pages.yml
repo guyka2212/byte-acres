@@ -1,0 +1,81 @@
+name: Deploy to GitHub Pages
+
+# Never automatic: a person starts it from the Actions tab.
+on:
+  workflow_dispatch:
+    inputs:
+      unlisted_preview:
+        description: 'Publish even though the release gate is blocked (an unlisted preview: search engines are told to stay away)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm ci
+
+      - name: Preflight
+        run: |
+          npx tsc -p tsconfig.json
+          npm test
+          python tools/replica/sweep.py . --config replica/brand.json
+          python tools/replica/contrast.py replica/design/tokens.json
+
+      - name: Release gate
+        run: |
+          if python tools/replica/gate.py; then
+            echo "Gate clear: public release."
+          elif [ "${{ inputs.unlisted_preview }}" = "true" ]; then
+            echo "::warning::Release gate blocked. Publishing an unlisted preview because unlisted_preview was ticked."
+          else
+            echo "::error::Release gate blocked. Fix the items above, or re-run with unlisted_preview to publish a preview."
+            exit 1
+          fi
+
+      - name: Build for Pages
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}/
+          # public by design (row level security protects the data); repo Settings > Variables > Actions
+          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}
+        run: npm run build
+
+      - name: Keep a preview out of search engines
+        if: ${{ inputs.unlisted_preview }}
+        run: |
+          printf 'User-agent: *\nDisallow: /\n' > dist/robots.txt
+          sed -i 's|<head>|<head>\n    <meta name="robots" content="noindex" />|' dist/index.html dist/app.html
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

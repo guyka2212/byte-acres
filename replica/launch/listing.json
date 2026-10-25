@@ -1,0 +1,29 @@
+{
+  "avoid": [
+    "The Farmer Was Replaced",
+    "Farmer Was Replaced",
+    "TheFarmerWasReplaced",
+    "Timon Herzog",
+    "Metaroot",
+    "Weird_Substance",
+    "pet_the_piggy",
+    "do_a_flip",
+    "Farmers_Remains",
+    "Drone Farm",
+    "drone-farm",
+    "DroneFarm"
+  ],
+  "app_store": {
+    "name": "Byte Acres: Code a Farm",
+    "subtitle": "Learn Python by farming",
+    "promotional_text": "Write your first line of Python in under a minute. The start of the game is free, and the whole farm is one purchase.",
+    "description": "Learn to code by teaching a drone to farm.\n\nByte Acres is a cozy farming game you play by writing real Python, one idea at a time. Type harvest(), press Run, and watch your drone do exactly what you wrote. What you harvest pays for the next idea: loops, if, variables, functions, lists.\n\nMade for people who are new to code:\n- Every idea has a page in the field guide that explains it\n- Errors mark the line and say what went wrong in plain words\n- Use something you haven't unlocked yet, and the game tells you what to get\n- Your code saves as you type\n- Edit your program while the drone keeps working\n\nGrow grass, bushes, trees and carrots, water your fields and expand your farm. More crops are on the way, each one a new kind of puzzle.\n\nThe start of the game is free. The whole farm is one purchase. No subscription.",
+    "keywords": "coding,programming,beginner,teach,stem,game,drone,puzzle,logic,kids,school,education,algorithms",
+    "whats_new": "First release. Start with harvest() and grow from there."
+  },
+  "google_play": {
+    "title": "Byte Acres: Code a Farm",
+    "short_description": "Learn Python by writing code that farms, one idea at a time.",
+    "full_description": "Learn to code by teaching a drone to farm.\n\nByte Acres is a cozy farming game you play by writing real Python, one idea at a time. Type harvest(), press Run, and watch your drone do exactly what you wrote. What you harvest pays for the next idea: loops, if, variables, functions, lists.\n\nMade for people who are new to code:\n- Every idea has a page in the field guide that explains it\n- Errors mark the line and say what went wrong in plain words\n- Use something you haven't unlocked yet, and the game tells you what to get\n- Your code saves as you type\n- Edit your program while the drone keeps working\n\nGrow grass, bushes, trees and carrots, water your fields and expand your farm. More crops are on the way, each one a new kind of puzzle.\n\nThe start of the game is free. The whole farm is one purchase. No subscription."
+  }
+}

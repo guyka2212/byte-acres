@@ -1,0 +1,18 @@
+node_modules
+dist
+.env
+.env.*
+!.env.example
+supabase/.temp
+supabase/.branches
+e2e-results
+dist-e2e
+dist-e2e-cloud
+tsconfig.tsbuildinfo
+
+# research with other people's words (copied reviews and quotes): kept in the
+# private byte-acres-source-code repo only, never in the public byte-acres repo
+replica/reviews.csv
+replica/research/
+replica/feedback.md
+replica/fixes.md

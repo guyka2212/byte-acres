@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm ci
+
+      - name: Typecheck
+        run: npx tsc -p tsconfig.json
+      - name: Unit tests (interpreter, sim, sync, database rules)
+        run: npm test
+      - name: Brand sweep (nothing of the original ships)
+        run: python tools/replica/sweep.py . --config replica/brand.json
+      - name: Contrast (WCAG AA)
+        run: python tools/replica/contrast.py replica/design/tokens.json
+      - name: Store listing
+        run: python tools/replica/listing.py replica/launch/listing.json
+      - name: Production build
+        run: npm run build
+
+      - name: End-to-end tests (Chrome)
+        run: npx playwright test
+      - name: Upload e2e report on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-results
+          path: e2e-results/
+          retention-days: 7
+
+      - name: Release gate (reported, does not fail CI)
+        if: always()
+        run: |
+          python tools/replica/gate.py | tee gate.txt || true
+          { echo '## Release gate'; echo '```'; cat gate.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"

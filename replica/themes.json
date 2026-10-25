@@ -1,0 +1,326 @@
+{
+ "_about": "Themes for Drone Farm's research on The Farmer Was Replaced: the skill's general themes that fit a single-player game, plus the game's own words.",
+ "request_patterns": [
+  "\\bi wish\\b",
+  "\\bplease add\\b",
+  "\\bwould be (nice|great|good|helpful)\\b",
+  "\\bwould love\\b",
+  "\\bneeds? (a|an|the|to|more)\\b",
+  "\\bno way to\\b",
+  "\\bthere'?s no (way|option)\\b",
+  "\\b(can'?t|cannot|unable to) (even )?(add|change|edit|set|choose|export|import|customi[sz]e|connect|undo|delete|turn off)\\b",
+  "\\b(missing|lacks|lacking)\\b",
+  "\\bdoesn'?t (have|support|let|allow)\\b",
+  "\\bif only\\b",
+  "\\bfeature request\\b",
+  "\\bwhy (can'?t|isn'?t|doesn'?t)\\b",
+  "\\bwould(?:'ve| have) loved\\b",
+  "\\bwould have liked\\b",
+  "\\bplease add\\b",
+  "\\bit would be nice\\b"
+ ],
+ "themes": [
+  {
+   "id": "pricing",
+   "label": "Price and paywalls",
+   "kind": "complaint",
+   "patterns": [
+    "\\bexpensive\\b",
+    "\\boverpriced\\b",
+    "\\bpric(e|es|ey|ing)\\b",
+    "\\bpaywall",
+    "\\bsubscription\\b",
+    "\\bper (month|seat|user)\\b",
+    "\\bfree (plan|tier|version)\\b",
+    "\\bupgrade to\\b",
+    "\\bpremium\\b",
+    "\\bnot worth\\b",
+    "\\bcost(s|ly)?\\b"
+   ]
+  },
+  {
+   "id": "bugs",
+   "label": "Bugs and crashes",
+   "kind": "complaint",
+   "patterns": [
+    "\\bcrash(es|ed|ing)?\\b",
+    "\\bbugs?\\b",
+    "\\bbuggy\\b",
+    "\\bglitch",
+    "\\bfreez(e|es|ing)\\b",
+    "\\bbroken\\b",
+    "\\b(doesn'?t|does not|stopped) work",
+    "\\bnot working\\b",
+    "\\berror\\b"
+   ]
+  },
+  {
+   "id": "performance",
+   "label": "Slow, laggy, heavy",
+   "kind": "complaint",
+   "patterns": [
+    "\\bslow\\b",
+    "\\blag(gy|s)?\\b",
+    "\\bloading\\b",
+    "\\btakes forever\\b",
+    "\\bbattery\\b",
+    "\\bsluggish\\b",
+    "\\bheavy\\b"
+   ]
+  },
+  {
+   "id": "data",
+   "label": "Sync and lost data",
+   "kind": "complaint",
+   "patterns": [
+    "\\bsync(ing|s|ed)?\\b",
+    "\\blost (my|all)\\b",
+    "\\bdisappear",
+    "\\bdata loss\\b",
+    "\\bwiped\\b",
+    "\\bbackup\\b",
+    "\\bduplicat"
+   ]
+  },
+  {
+   "id": "ux",
+   "label": "Confusing or clunky to use",
+   "kind": "complaint",
+   "patterns": [
+    "\\bconfus",
+    "\\bhard to (use|find|navigate|understand)\\b",
+    "\\bcomplicated\\b",
+    "\\bcluttered\\b",
+    "\\bunintuitive\\b",
+    "\\bnot intuitive\\b",
+    "\\bclunky\\b",
+    "\\btoo many (steps|clicks|taps)\\b",
+    "\\blearning curve\\b",
+    "\\bcan'?t find\\b"
+   ]
+  },
+  {
+   "id": "updates",
+   "label": "A redesign or update made it worse",
+   "kind": "complaint",
+   "patterns": [
+    "\\b(new|latest|recent) (update|version|design)\\b",
+    "\\bredesign",
+    "\\bused to be\\b",
+    "\\bbring back\\b",
+    "\\bsince the update\\b"
+   ]
+  },
+  {
+   "id": "platforms",
+   "label": "Platforms, offline and mobile",
+   "kind": "request",
+   "patterns": [
+    "\\boffline\\b",
+    "\\bandroid\\b",
+    "\\bipad\\b",
+    "\\btablet\\b",
+    "\\bdesktop app\\b",
+    "\\bmac app\\b",
+    "\\bwindows\\b",
+    "\\bmobile (app|version)\\b",
+    "\\bweb version\\b"
+   ]
+  },
+  {
+   "id": "customisation",
+   "label": "Customisation and control",
+   "kind": "request",
+   "patterns": [
+    "\\bcustomi[sz]",
+    "\\bdark mode\\b",
+    "\\btheme\\b",
+    "\\bbranding\\b",
+    "\\bwhite.?label\\b",
+    "\\btemplates?\\b",
+    "\\bsettings?\\b",
+    "\\boption to\\b"
+   ]
+  },
+  {
+   "id": "teaching",
+   "label": "Stops teaching: tutorials vanish, docs assume you know",
+   "kind": "complaint",
+   "patterns": [
+    "\\btutorials?\\b",
+    "\\bexplain",
+    "\\bexplanation",
+    "\\bgoogl",
+    "\\blook (it|things) up\\b",
+    "\\byoutube\\b",
+    "\\bguidance\\b",
+    "\\bmanual\\b",
+    "\\bdocumentation\\b",
+    "\\bwalls? of text\\b",
+    "\\bparagraphs of text\\b",
+    "\\bfigure it out\\b",
+    "\\bbeginners?\\b",
+    "\\bnewbie\\b",
+    "\\bnoob\\b",
+    "\\bno coding experience\\b",
+    "\\bteacher\\b"
+   ]
+  },
+  {
+   "id": "difficulty_jump",
+   "label": "Difficulty jumps (sorting, mazes) without a bridge",
+   "kind": "complaint",
+   "patterns": [
+    "\\bjump\\b",
+    "\\bramps? up\\b",
+    "\\bsorting algorithm",
+    "\\bconceptual gap\\b",
+    "\\btoo fast\\b",
+    "\\bescalates\\b",
+    "\\bdrops off\\b",
+    "\\byada.?yada\\b",
+    "\\bfalls apart\\b"
+   ]
+  },
+  {
+   "id": "idle",
+   "label": "Turns into waiting: idle grind, leave it running",
+   "kind": "complaint",
+   "patterns": [
+    "\\bidle\\b",
+    "\\bwait(ing)?\\b",
+    "\\bgrind",
+    "\\bleave (it|the game) running\\b",
+    "\\brunning in the background\\b",
+    "\\bclicker\\b",
+    "\\btick up\\b",
+    "\\balt.?tab\\b",
+    "\\bfeels? (more )?like work\\b",
+    "\\bnumber go(es)? up\\b"
+   ]
+  },
+  {
+   "id": "optimisation_unrewarded",
+   "label": "Better code isn't rewarded",
+   "kind": "complaint",
+   "patterns": [
+    "\\boptimi[sz]",
+    "\\befficient\\b",
+    "\\bperformance is not rewarded\\b",
+    "\\bgood enough\\b",
+    "\\bno (reason|point|incentive)\\b",
+    "\\bdoesn'?t (really )?motivate\\b"
+   ]
+  },
+  {
+   "id": "content",
+   "label": "Too little content, short, repetitive",
+   "kind": "complaint",
+   "patterns": [
+    "\\bcontent\\b",
+    "\\bshort\\b",
+    "\\bboring\\b",
+    "\\brepetitive\\b",
+    "\\bmonoton",
+    "\\bmore of the same\\b",
+    "\\bnot much to do\\b",
+    "\\blimited\\b",
+    "\\bscope\\b",
+    "\\bunlocked (almost everything|most)\\b",
+    "\\bdepth\\b"
+   ]
+  },
+  {
+   "id": "editor",
+   "label": "The code editor fights you",
+   "kind": "complaint",
+   "patterns": [
+    "\\beditor\\b",
+    "\\bide\\b",
+    "\\bshift.?tab\\b",
+    "\\bunindent\\b",
+    "\\bautocomplet",
+    "\\bauto-completion\\b",
+    "\\bctrl\\s?\\+?\\s?[zc]\\b",
+    "\\bbreakpoints?\\b",
+    "\\bindent",
+    "\\btext editing\\b",
+    "\\bcan'?t edit code\\b",
+    "\\bedit code (and|while)\\b",
+    "\\bscroll"
+   ]
+  },
+  {
+   "id": "language_limits",
+   "label": "The language is too cut-down",
+   "kind": "complaint",
+   "patterns": [
+    "\\bdict(ionar(y|ies))?\\b",
+    "\\bcomprehension",
+    "\\bternary\\b",
+    "\\bclasses\\b",
+    "\\bstandard library\\b",
+    "\\bpython features\\b",
+    "\\bfunctionality of python\\b",
+    "\\bone arm tied\\b",
+    "\\bhands bound\\b",
+    "\\bartificial limitations\\b",
+    "\\bpseudo.?syntax\\b",
+    "\\bsleep function\\b",
+    "\\bnot really coding\\b"
+   ]
+  },
+  {
+   "id": "error_feedback",
+   "label": "Errors that don't explain",
+   "kind": "complaint",
+   "patterns": [
+    "\\berror message",
+    "\\bwhat the errors mean\\b",
+    "\\bno error\\b",
+    "\\bwarnings?\\b",
+    "\\bfeedback\\b",
+    "\\bwhat broke\\b",
+    "\\bdebugg",
+    "\\bprint\\b"
+   ]
+  },
+  {
+   "id": "locked_basics",
+   "label": "Basics locked behind unlocks",
+   "kind": "complaint",
+   "patterns": [
+    "\\block(ed)? (behind|until)\\b",
+    "\\bunlock (language|loop|everything)",
+    "\\bdoesn'?t even allow you\\b",
+    "\\bhave to unlock\\b",
+    "\\bgrind and wait to unlock\\b"
+   ]
+  },
+  {
+   "id": "other_languages",
+   "label": "Other programming languages",
+   "kind": "request",
+   "patterns": [
+    "\\bc\\+\\+",
+    "\\brust\\b",
+    "\\bjava\\b",
+    "\\btypescript\\b",
+    "\\b(other|more|additional|different) (programming )?languages?\\b"
+   ]
+  },
+  {
+   "id": "ui_scale",
+   "label": "UI size and scaling",
+   "kind": "complaint",
+   "patterns": [
+    "\\bui scal",
+    "\\bfont size\\b",
+    "\\btext is too big\\b",
+    "\\b1080p\\b",
+    "\\blaptop\\b",
+    "\\bzoom"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,6 @@
+-- Superseded. The cloud schema now lives in the checked-in migrations:
+--   supabase/migrations/20261024000000_cloud_saves.sql
+-- and is tested against Postgres in tests/db/rls.test.ts.
+-- Changes from the first draft: code files are part of the save blob (one
+-- atomic write), profiles hold only a display name, and a profile is created
+-- automatically at sign-up.

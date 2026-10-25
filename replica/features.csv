@@ -1,0 +1,94 @@
+feature,area,priority,original,clone,notes
+Pannable farm view with drone on a square grid,world,must,yes,yes,"S03 canvas renderer; drag to pan, wheel to zoom, re-centre button"
+Floating draggable code window with Execute,editor,must,yes,yes,"S04; drag, resize, Alt+arrows; bottom sheet on phones"
+Syntax highlighting and auto-indent in the editor,editor,must,yes,yes,"CodeMirror 6, token colours, ligatures off"
+Current line highlight while running,editor,must,yes,yes,
+Step-by-step execution and pause/resume,editor,must,yes,yes,"Step (F10), Pause button and F6, Resume"
+Output window with print log and errors with line numbers,editor,must,yes,yes,S05 plus an error strip in the code window
+Python-subset interpreter: variables ifs loops,language,must,yes,yes,"own lexer/parser/bytecode VM, 30 unit tests"
+Functions with def and return and scopes,language,must,yes,yes,"defaults, *args, global, closures"
+Lists tuples dicts sets,language,must,yes,yes,no comprehensions yet (clear error)
+Operators arithmetic comparison boolean,language,must,yes,yes,
+Tick cost per builtin and game-time scaling,runtime,must,yes,yes,our own cost table in content.ts
+Infinite loops never freeze the UI,runtime,must,yes,yes,sim runs in a Web Worker on a time budget
+Drone actions: move (wraps) harvest plant till,drone,must,yes,yes,
+Senses: entity type ground type position can_harvest world size,drone,must,yes,yes,
+Items and inventory HUD,economy,must,yes,yes,S08; hay wood carrot water
+Grass gives hay,crops,must,yes,yes,"unripe grass survives a harvest (our rule, friendlier first loop)"
+Bushes and trees give wood,crops,must,yes,yes,trees grow slower next to trees
+Carrots on soil cost resources,crops,must,yes,yes,
+Plant growth timers with random ranges,crops,must,yes,yes,seeded RNG
+Watering raises growth speed,crops,must,yes,yes,passive water income per Watering level
+Unlock tree with costs and levels,progression,must,yes,yes,"S07; 17 unlocks, our own numbers"
+Unlocks gate language features,progression,must,yes,yes,compile-time gating with a pointer to the unlock
+Expand upgrades grow the farm,progression,must,yes,yes,1 to 10 tiles
+Speed upgrades,progression,must,yes,yes,
+In-game docs revealed as you unlock,docs,must,yes,yes,"S06 field guide, 18 pages in our words"
+Save and load with multiple slots,saves,must,yes,yes,"fields: as many as you like, each with a name and a size cap, on the home screen; synced to the cloud when signed in"
+Autosave,saves,must,yes,yes,"every 5s, on run start/stop, after code edits, on unlock; a rescue copy on page close; one tab owns the farm"
+Cloud backup across devices (optional account),saves,should,yes,yes,"Supabase project byte-acres: magic link or no-email student accounts, farms table with revisions and conflict prompt, account deletion Edge Function deployed"
+Code files saved as .py with export/import,saves,must,yes,yes,download all files as a .zip; open .py files into the field
+Multiple code files and import between them,language,must,yes,yes,new files are named in a dialog; rename any file but main.py
+Giant pumpkins with death and merge,crops,must,yes,yes,"k×k squares, rot chance, goo"
+Sunflowers petals and power boost,crops,must,yes,yes,"petals 6–14, biggest of 8+ pays 5 power; power doubles speed"
+Cactus sorting with swap and chain harvest,crops,must,yes,yes,"swap(dir), sorted neighbours chain, n² yield"
+Maze from bush with treasure and gold,crops,must,yes,yes,"goo on a grown bush, randomised DFS maze, can_move, measure for the treasure"
+Fertilizer item,crops,should,yes,no,
+Companion planting (polyculture),crops,should,yes,no,F11
+Dinosaur snake mode with bones,crops,should,yes,no,F10
+Multiple drones with spawn and wait,runtime,should,yes,no,F12 Megafarm
+Maze reuse with walls removed,crops,should,yes,no,
+measure() for petals cactus size maze target,drone,should,yes,yes,"petals, cactus size, treasure position"
+random() and timing functions,language,should,yes,yes,Toolbox unlock
+quick_print vs print as speech above drone,editor,should,yes,yes,"print = 1s speech bubble, quick_print = log only"
+Warning icon with details,editor,should,yes,yes,badge in the code window title bar
+Undo redo in editor,editor,should,yes,yes,CodeMirror history
+Search across code and docs,editor,should,yes,no,S10
+Autocomplete for unlocked builtins,editor,should,yes,yes,"only unlocked commands, keywords and the player's own names; members after a dot; can be turned off in settings"
+Main menu,menus,should,yes,yes,"home screen for fields and classes, pause menu with save, code export/import, settings and start over"
+Options: audio language keybinds UI scale,menus,should,yes,no,S09
+Rebindable keybinds,menus,should,yes,no,
+Execution speed limit for watching,runtime,should,yes,no,set_execution_speed
+Auto-unlock upgrade,progression,should,yes,no,
+Unlock from code with unlock() and get_cost(),progression,should,yes,no,
+Debug unlocks (step and tooling gated),progression,should,yes,partial,Notebook unlock gives quick_print; Step is free for everyone
+First-run hints,onboarding,should,yes,yes,"S14, three steps to the first unlock"
+Hide UI screenshot mode,world,should,yes,no,S15
+Ending scene for final unlock,progression,should,yes,no,S13 our own story
+Hats for the drone (cosmetic),cosmetics,could,yes,yes,"change_hat(Hats.X): 13 hats of our own, crop hats come with their crop"
+Local best-times board with simulate(),challenges,could,yes,no,S12 replaces Steam leaderboards
+Seeded deterministic simulation,runtime,could,yes,partial,"seeded RNG and ordered scheduler; seed not exposed, no simulate() yet"
+Achievements (local),progression,could,yes,no,
+Reset run (prestige),progression,could,yes,no,original removed it
+Drone emotes (flip etc),cosmetics,could,yes,yes,"flip(), from the first second"
+Sound effects and music,audio,could,yes,no,our own audio
+Localization,menus,could,yes,no,
+Live file sync with external editor,saves,could,yes,no,needs desktop wrapper
+Benchmark of ticks per run,editor,could,yes,yes,get_tick_count()
+Mobile or touch layout,world,could,no,partial,one window at a time as a bottom sheet; touch pan works; typing code on phones is still hard
+Desktop wrapper (Tauri or Electron),platform,could,no,no,
+Steam achievements and cloud saves,platform,skip,yes,skip,Steam platform features are not ours; cloud saves are covered by our own optional backup
+Steam online leaderboards,challenges,skip,yes,skip,their network; local board instead
+Original art models music and audio,assets,skip,yes,skip,owned by the original; we make our own style
+Original docs text and tooltips,docs,skip,yes,skip,copyrighted text; write our own
+Original names (game title hats items like Weird_Substance),brand,skip,yes,skip,distinctive expression; invent ours
+Exact cost and growth numbers,balance,skip,yes,skip,reference only; tune our own
+Discord community and 10 voiced localizations,community,skip,yes,skip,not part of the product
+Guided lesson and three-step hints for every unlock,teaching,must,no,yes,33 lessons; every near-answer is run in the sim by the tests
+Bridge lessons before sorting and mazes (algorithm named and explained),teaching,must,no,yes,"sunflowers-max, cactus-swap, cactus-row, maze-walls, plus parameter, list-loop and dict-tally bridges"
+"Two paths: new to code, or already code (full language from the start)",onboarding,should,no,no,fixes.md #6
+Warning when a function is used without (),editor,should,no,no,fixes.md #5: silent missing-parentheses bug in the original
+Fuzzy autocomplete with signature hints,editor,should,no,partial,"signatures and descriptions in the suggestion list; prefix match, not fuzzy"
+File history and undo for deleted files,saves,should,no,no,fixes.md #3
+"Efficiency stats: ticks per harvest, yield per minute",progression,should,no,no,fixes.md #7: better code should pay
+Goals and contracts that reward faster programs instead of idle time,progression,should,no,no,fixes.md #7: waiting 13 reviews
+List comprehensions,language,should,no,no,fixes.md #8: language too cut-down 12 reviews
+Classes: teachers open a class with a join code,classes,must,no,yes,"Supabase classes table, create_class RPC, code shown big for the board"
+"Students join with a code, no email needed",classes,must,no,partial,join_class RPC built and tested; no-email join needs Anonymous sign-ins switched on in the Supabase dashboard
+"Class leaderboard, live",classes,must,no,yes,class_leaderboard RPC; refreshes every 15 s; class fields push every 20 s
+Teacher demo field with everything unlocked at max,classes,must,no,yes,"demo farm kind, never on the leaderboard"
+"Teacher's own field per class, to race the students",classes,should,no,yes,"class farm owned by the teacher, saved per class"
+Command book listing only unlocked commands,docs,should,no,yes,Library button in the toolbar
+untill() to turn soil back into grassland,farming,could,no,yes,asked for by the user
+3D farm view,art,should,yes,yes,"three.js, every model built in code, colours from tokens; 2D view kept as a setting and a fallback"
+Icons for every material,art,should,yes,yes,drawn SVG icons in the HUD

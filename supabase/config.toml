@@ -1,0 +1,35 @@
+# Supabase CLI settings for local development (`supabase start`) and deploys.
+# Values for the hosted project are set in the dashboard; see replica/backend.md.
+
+project_id = "byte-acres"
+
+[api]
+schemas = ["public"]
+
+[auth]
+site_url = "http://localhost:5173"
+additional_redirect_urls = ["http://localhost:5173"]
+enable_signup = true
+# email and password; accounts are created confirmed by the sign-up function (no verification email for now)
+[auth.email]
+enable_signup = true
+enable_confirmations = false
+
+[auth.email.template.magic_link]
+subject = "Your Byte Acres sign-in link"
+content_path = "./supabase/templates/magic_link.html"
+
+[auth.rate_limit]
+# sign-in emails per hour, per project
+email_sent = 30
+
+[functions.delete-account]
+verify_jwt = true
+
+# called before there is an account, so no JWT; it validates its own input
+[functions.sign-up]
+verify_jwt = false
+
+[db.seed]
+enabled = true
+sql_paths = ["./seed.sql"]
